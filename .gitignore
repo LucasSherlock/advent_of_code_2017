@@ -4,6 +4,7 @@ bin/
 .project
 .metadata/
 .recommenders/
+.classpath
 
 # Compiled class file
 *.class
