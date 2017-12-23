@@ -2,10 +2,11 @@ package q2;
 
 import java.util.ArrayList;
 
-public class Main {
+public class Q2Main {
 	private static ArrayList<String> input = q1.Main.readFile("Q2_Input.txt");
 	public static void main(String[] args) {
 		ptOne();
+		ptTwo();
 
 	}
 	
@@ -24,8 +25,25 @@ public class Main {
 				if(nums[i] > max) {
 					max = nums[i];
 				}
-				total += (max-min);
+				
 			}
+			total += (max-min);
+		}
+		System.out.println(total);
+	}
+	
+	public static void ptTwo() {
+		int total = 0;
+		for(String line : input) {
+			int[] nums = toIntArray(line);
+			for(int i = 0; i < nums.length; i++) {
+				for(int j = 0; j < nums.length; j++) {
+					if(j != i && nums[j]%nums[i] == 0) {
+						total += nums[j]/nums[i];
+					}
+				}
+			}
+			
 		}
 		System.out.println(total);
 	}
@@ -38,4 +56,5 @@ public class Main {
 		}
 		return nums;
 	}
+
 }
